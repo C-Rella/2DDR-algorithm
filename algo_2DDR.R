@@ -156,11 +156,6 @@ algo_2DDR <- function(score, xi, y,
                                  xi = xi, 
                                  cost_matrix = cost_matrix, 
                                  region = rbind(region, FD_max))$pp 
-    
-    # print(loss_function_grid(score = score,
-    #                          xi = xi,
-    #                          cost_matrix = cost_matrix,
-    #                          region = region)$pp)
 
     if(pp_act > pp_max){
       region <- region_prev
