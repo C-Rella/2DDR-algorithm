@@ -132,17 +132,7 @@ algo_2DDR <- function(score, xi, y,
       }
       
       FD_prev <- unique(FD_prev)
-      
-      # --- Take all the frontier --- #
-      # FD_prev <- data.frame()
-      # for (i in 1:(dim(region)[1])){
-      #   FD_prev <- rbind(
-      #     FD_prev,
-      #     data.frame(d1 = region[i,1], d2 = index[index <= region[i,2]]),
-      #     data.frame(d1 = index[index <= region[i,1]], d2 = region[i,2])
-      #   )
-      # }
-      
+           
     } else{
       FD_prev <- FD
     }
@@ -186,25 +176,4 @@ algo_2DDR <- function(score, xi, y,
   region <- data.frame(d1 = d1[region[,1]], d2 = d2[region[,2]])
   return(list(region = region, lf = lf, sav = 1 - lf/sum(cost_matrix[,1])))
 }
-
-
-# a_cost <- 0.047
-# b_cost <- .01
-# c_cost <- .6
-# n <- 5000
-# 
-# score <- c(runif(n), .5)
-# y <- c(as.numeric(plogis(-2 + 3*score[1:n] + rnorm(n)) > .8), 1); mean(y)
-# xi <- c(rchisq(n, df = 2), 18)
-# 
-# # --- First/second column: Cost when y_hat = 0 / 1
-# cost_matrix <- matrix(nrow = length(score), ncol = 2)
-# cost_matrix[, 1] <- ifelse(y == 1, c_cost*xi, 0)
-# cost_matrix[, 2] <- ifelse(y == 1, b_cost, b_cost + a_cost*xi)
-
-# algo_2DDR(score = score, xi = xi, y = y, cost_matrix = cost_matrix, k = 10, 
-#           pp_max = 1, represent = T, regular = T)
-# algo_2DDR(score = score, xi = xi, y = y, cost_matrix = cost_matrix, k = 10, 
-#           pp_max = .05, represent = F, regular = F)
-  
 
